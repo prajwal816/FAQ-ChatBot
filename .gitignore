@@ -1,17 +1,23 @@
-# Ignore virtual environment
-venv/
-
-# Python cache and compiled files
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.dll
-*.so
 
-# Environment files
+# Environment
 .env
+venv/
+.venv/
 
-# VS Code or other IDE folders
-.vscode/
-.idea/
+# Data
+vectorstore/
+data/
+
+# OS and IDE files
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Others
+*.log

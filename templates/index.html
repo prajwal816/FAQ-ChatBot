@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FAQ Chatbot</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 700px;
+        margin: 50px auto;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      .answer {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FAQ Chatbot</h1>
+    <form method="post">
+      <input
+        type="text"
+        name="query"
+        placeholder="Ask a question..."
+        value="{{ query }}"
+      />
+      <input type="submit" value="Ask" />
+    </form>
+
+    {% if answer %}
+    <div class="answer">
+      <strong>Answer:</strong><br />
+      {{ answer }}
+    </div>
+    {% endif %}
+  </body>
+</html>

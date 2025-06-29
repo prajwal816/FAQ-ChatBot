@@ -123,7 +123,7 @@ faq-chatbot/
 │   │   ├── pages/Index.tsx
 │   │   ├── main.tsx
 │   │   └── lib/utils.ts
-├── git.ignore
+├── .gitignore
 └── README.md
 ```
 

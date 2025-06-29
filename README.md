@@ -35,13 +35,7 @@ IBM_REGION=eu-de
 IBM_MODEL_ID=google/flan-ul2
 ```
 
-##### 3. Ingest the knowledge base
-
-```bash
-python ingest.py
-```
-
-##### 4. Run the backend
+##### 3. Run the backend
 
 ```bash
 uvicorn main:app --reload --port 8000

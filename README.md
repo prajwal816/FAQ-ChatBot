@@ -119,6 +119,9 @@ faq-chatbot/
 │   │   └── lib/utils.ts
 ├── .gitignore
 └── README.md
+└──.env
+└──requirements.txt
+
 ```
 
 ---

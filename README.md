@@ -123,10 +123,7 @@ faq-chatbot/
 │   │   ├── pages/Index.tsx
 │   │   ├── main.tsx
 │   │   └── lib/utils.ts
-├── vectorstore/
-│   ├── index.faiss
-│   └── index.pkl
-├── requirements.txt
+├── git.ignore
 └── README.md
 ```
 

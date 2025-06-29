@@ -1,0 +1,28 @@
+# Ignore virtual environment
+venv/
+.venv/
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+venv/
+.venv/
+
+# Data
+vectorstore/
+data/
+
+# OS and IDE files
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Others
+*.log

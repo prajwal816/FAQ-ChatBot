@@ -1,147 +1,77 @@
-﻿# Faq-chatbot
+## 🤖 Generative AI FAQ Chatbot
 
-## Generative AI FAQ Chatbot – Full Stack (React + FastAPI)
+An AI-powered FAQ chatbot with a modern React frontend and FastAPI backend integrated with IBM Watsonx.ai for intelligent document-based question answering. Styled beautifully with Tailwind CSS and designed for real-time, responsive interactions.
 
-A modern, responsive AI-powered FAQ chatbot with a sleek chat interface built in React + TypeScript and connected to a FastAPI backend using IBM Watsonx.ai. Features include real-time messaging, smooth animations, and seamless backend integration.
+---
 
-💡 Chatbot Preview
-Imagine a WhatsApp-style chatbot UI that instantly replies using AI – all hosted locally!
+### 🌟 Features
 
-✨ Features
-💬 Modern Chat UI – Inspired by WhatsApp and Intercom
+* 💬 **Conversational UI** - Modern WhatsApp-style chat interface
+* 🤖 **IBM Watsonx.ai Integration** - Uses RAG to answer questions from your documents
+* ⏳ **Real-time Feedback** - Typing indicators and loading states
+* 📊 **Embeddings + Vector DB** - Built with `langchain`, `FAISS`, and `HuggingFace` models
+* 🔧 **Customizable Knowledge Base** - Add your own `.txt`/`.md` FAQs
+* 📊 **Auto-scroll + Timestamped Messages** - Smooth chat experience
+* 🌐 **Responsive Design** - Works on all device sizes
 
-🤖 AI-Powered – Uses IBM Watsonx LLM via FastAPI backend
+---
 
-⏳ Loading States – Typing indicator + message delays
+### 🚀 Getting Started
 
-🌀 Smooth Animations – For real-time interaction feel
+#### 🚧 Backend Setup (FastAPI + LangChain + IBM Watsonx)
 
-📱 Responsive – Works on desktop, tablet, and mobile
+##### 1. Install dependencies
 
-⏰ Timestamps – Shows when each message was sent
-
-🚀 Auto-scroll – Scrolls to newest message on update
-
-🎨 Beautiful UI – Gradient backgrounds, icons, and transitions
-
-🚀 Getting Started
-✅ Prerequisites
-Node.js (v16 or higher)
-
-Python 3.10+
-
-pip (Python package manager)
-
-uvicorn, fastapi, etc. (see requirements below)
-
-🧠 Backend Setup (FastAPI + IBM Watsonx.ai)
-Clone the project and navigate to the backend:
-
-bash
-Copy
-Edit
-cd faq-chatbot/Backend
-Install dependencies:
-
-bash
-Copy
-Edit
+```bash
 pip install -r requirements.txt
-Set your IBM API environment variables (create a .env file):
+```
 
-ini
-Copy
-Edit
-IBM_API_KEY=3nqGorN5PMhb9tOFO1ypA3a0-EllqF-AwJoLQbK3iCqM
-IBM_PROJECT_ID=a4a4d653-ddc5-41b7-b06d-a43a66383b3a
+##### 2. Set environment variables (in `.env` file)
+
+```env
+IBM_API_KEY=your-api-key
+IBM_PROJECT_ID=your-project-id
 IBM_REGION=eu-de
 IBM_MODEL_ID=google/flan-ul2
-Run the FastAPI server:
+```
 
-bash
-Copy
-Edit
+##### 3. Ingest the knowledge base
+
+```bash
+python ingest.py
+```
+
+##### 4. Run the backend
+
+```bash
 uvicorn main:app --reload --port 8000
-📍 Server runs at: http://localhost:8000
+```
 
-🌐 Frontend Setup (React + Vite)
-Navigate to the frontend folder:
+Your backend is now live at: `http://localhost:8000`
 
-bash
-Copy
-Edit
-cd ../Frontend
-Install dependencies:
+#### Endpoint:
 
-bash
-Copy
-Edit
-npm install
-Start the development server:
+`POST /ask`
 
-bash
-Copy
-Edit
-npm run dev
-Visit: http://localhost:8080
+**Request:**
 
-🏗️ Project Structure
-bash
-Copy
-Edit
-faq-chatbot/
-├── Backend/              # FastAPI app with chatbot logic
-│   ├── main.py
-│   ├── chatbot.py
-│   └── ...
-├── Frontend/             # React + Vite frontend
-│   ├── src/
-│   │   ├── pages/
-│   │   │   └── Index.tsx   # Main chat interface
-│   │   ├── lib/
-│   │   │   └── utils.ts
-│   │   ├── index.css
-│   │   └── main.tsx
-│   └── ...
-└── README.md
-🎨 Design Highlights
-📱 Responsive mobile-first layout
+```json
+{
+  "query": "What is your return policy?"
+}
+```
 
-🎯 Tailwind CSS for styling
+**Response:**
 
-⌛ Bouncing dots typing animation
+```json
+{
+  "answer": "You can return products within 30 days of purchase."
+}
+```
 
-🌈 Gradient backgrounds & shadows
+#### Enable CORS in `main.py`
 
-🔁 Real-time UX feel
-
-🔧 Configuration
-📡 Backend API
-The React frontend connects to:
-
-ts
-Copy
-Edit
-const response = await fetch('http://localhost:8000/ask', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ query: inputText }),
-});
-🚨 Troubleshooting
-🧩 Common Errors
-"I'm having trouble connecting to my knowledge base"
-
-✅ Fix:
-
-Ensure uvicorn main:app is running
-
-CORS is enabled in FastAPI:
-
-python
-Copy
-Edit
+```python
 from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
@@ -151,53 +81,119 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-Frontend not loading
-→ Make sure you're inside Frontend/ when running npm run dev.
+```
 
-🔮 Future Enhancements
-🌙 Dark mode toggle
+---
 
-💾 Chat history persistence
+### 🏠 Frontend Setup (React + TypeScript + Tailwind)
 
-🌍 Multi-language support
+##### 1. Navigate to frontend directory
 
-🔊 Voice input support
+```bash
+cd Frontend
+```
 
-📄 Message export
+##### 2. Install packages
 
-📎 File uploads
+```bash
+npm install
+```
 
-❤️ Reactions on messages
+##### 3. Start development server
 
-📑 API Reference
-POST /ask
-Request:
+```bash
+npm run dev
+```
 
-json
-Copy
-Edit
-{
-  "query": "What are your delivery options?"
-}
-Response:
+Frontend will be served at: `http://localhost:8080`
 
-json
-Copy
-Edit
-{
-  "answer": "We offer standard and express delivery across India."
-}
-🤝 Contributing
-Fork this repo
+---
 
-Create a new branch
+### 🛏️ Project Structure
 
-Commit your features
+```
+faq-chatbot/
+├── Backend/
+│   ├── main.py
+│   ├── ingest.py
+│   ├── chatbot.py
+│   └── data/faqs/*.txt
+├── Frontend/
+│   ├── src/
+│   │   ├── pages/Index.tsx
+│   │   ├── main.tsx
+│   │   └── lib/utils.ts
+├── vectorstore/
+│   ├── index.faiss
+│   └── index.pkl
+├── requirements.txt
+└── README.md
+```
 
-Push and create a PR
+---
 
-📄 License
-MIT License – use freely, contribute openly
+### 🎨 Design Highlights
+
+* Tailwind CSS powered components
+* Lucide icons (`User`, `Bot`, `Send`, etc.)
+* Smooth fade-in animations
+* Typing dots animation when AI is thinking
+* Blue-to-purple gradient header
+
+---
+
+### 🚨 Troubleshooting
+
+**Error:** "Failed to get response from AI"
+
+* Backend not running at `localhost:8000`
+* Invalid IBM Watsonx credentials
+* Missing vector store files (run `ingest.py` again)
+
+**Frontend loads but no messages returned**
+
+* Check backend logs for 500/400 errors
+* Verify CORS is enabled
+
+---
+
+### 🦄 Future Additions
+
+* 🌚 Dark mode toggle
+* 🌍 Multi-language support
+* 🔊 Voice input integration
+* 📰 Chat history persistence
+* 🔗 OAuth login
+
+---
+
+### 📚 License
+
+MIT License. Feel free to fork and modify.
+
+---
+
+### 📤 Deploying
+
+You can deploy the backend on **Render**, **Railway**, or **Heroku**.
+Frontend can be deployed to **Vercel** or **Netlify**.
+
+---
+
+### 🔗 GitHub Repository
+
+```bash
+git init
+git remote add origin https://github.com/your-username/FAQ-ChatBot.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+
+---
+
+Made with ❤️ using React, FastAPI & IBM Watsonx.ai
+
 
 ### 📄 License
 

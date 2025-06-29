@@ -1,4 +1,4 @@
-## 🤖 Generative AI FAQ Chatbot
+#  Generative AI FAQ Chatbot
 
 An AI-powered FAQ chatbot with a modern React frontend and FastAPI backend integrated with IBM Watsonx.ai for intelligent document-based question answering. Styled beautifully with Tailwind CSS and designed for real-time, responsive interactions.
 

@@ -1,6 +1,6 @@
 ﻿# Faq-chatbot
 
-##Generative AI FAQ Chatbot – Full Stack (React + FastAPI)
+## Generative AI FAQ Chatbot – Full Stack (React + FastAPI)
 
 A modern, responsive AI-powered FAQ chatbot with a sleek chat interface built in React + TypeScript and connected to a FastAPI backend using IBM Watsonx.ai. Features include real-time messaging, smooth animations, and seamless backend integration.
 
